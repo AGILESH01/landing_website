@@ -132,7 +132,7 @@ export const AdminLayout: React.FC = () => {
         {/* Footer Actions */}
         <div className="p-4 border-t border-white/10 space-y-2">
           <a
-            href="https://landing-website-three-sigma.vercel.app"
+            href="https://landing-website-pi-vert.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-between w-full px-3.5 py-2 text-xs text-slate-400 hover:text-gold-300 rounded-lg hover:bg-white/5 transition-colors"
