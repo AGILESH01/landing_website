@@ -12,15 +12,7 @@ import { QualityPage } from './pages/QualityPage';
 import { QuotePage } from './pages/QuotePage';
 import { ContactPage } from './pages/ContactPage';
 
-// Admin Pages
-import { AdminLogin } from './pages/admin/AdminLogin';
-import { AdminLayout } from './pages/admin/AdminLayout';
-import { AdminOverview } from './pages/admin/AdminOverview';
-import { AdminFabrics } from './pages/admin/AdminFabrics';
-import { AdminFabricForm } from './pages/admin/AdminFabricForm';
-import { AdminQuotations } from './pages/admin/AdminQuotations';
-import { AdminQuotationDetail } from './pages/admin/AdminQuotationDetail';
-import { AdminSettings } from './pages/admin/AdminSettings';
+// Public Pages
 
 /**
  * Public Layout Wrapper with Navigation Header & Footer
@@ -63,7 +55,7 @@ const NotFoundPage: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <Routes>
-      {/* Public Pages */}
+      {/* Public Customer Pages */}
       <Route path="/" element={<PublicLayout />}>
         <Route index element={<HomePage />} />
         <Route path="fabrics" element={<CataloguePage />} />
@@ -73,18 +65,6 @@ export const App: React.FC = () => {
         <Route path="quote" element={<QuotePage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Route>
-
-      {/* Admin Portal */}
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<AdminOverview />} />
-        <Route path="fabrics" element={<AdminFabrics />} />
-        <Route path="fabrics/new" element={<AdminFabricForm />} />
-        <Route path="fabrics/:id/edit" element={<AdminFabricForm />} />
-        <Route path="quotations" element={<AdminQuotations />} />
-        <Route path="quotations/:id" element={<AdminQuotationDetail />} />
-        <Route path="settings" element={<AdminSettings />} />
       </Route>
     </Routes>
   );
