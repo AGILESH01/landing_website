@@ -99,7 +99,7 @@ describe('quotationService', () => {
       country: 'India',
     });
 
-    expect(url).toContain('https://wa.me/919842406591');
+    expect(url).toContain('https://wa.me/919842212112');
     expect(url).toContain(encodeURIComponent('KT-2026-1234'));
     expect(url).toContain(encodeURIComponent('Anand Kumar'));
     expect(url).toContain(encodeURIComponent('5000 Metres'));

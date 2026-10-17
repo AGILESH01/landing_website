@@ -307,7 +307,7 @@ export const QuotePage: React.FC = () => {
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="+91 9842406591 or international format"
+                    placeholder="+91 9842212112 or international format"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 text-xs sm:text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50 bg-cream-50/40"
                   />
                 </div>

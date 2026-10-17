@@ -28,8 +28,9 @@ const STORAGE_KEY_AUTH = 'kt_admin_auth_v1';
 
 export const DEFAULT_SETTINGS: OperationalSettings = {
   company_name: 'Karthikeyan Textiles',
-  phone: '+91 9842406591',
-  whatsapp: '+91 9842406591',
+  phone: '+91 9842212112',
+  landline: '04288 234112',
+  whatsapp: '+91 9842212112',
   email: 'karthikeyantextiles18@gmail.com',
   location: 'Pallipalayam, Erode, Tamil Nadu, India',
   business_hours: 'Monday–Saturday, 9:00 AM–8:00 PM IST',

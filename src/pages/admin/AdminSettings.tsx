@@ -113,12 +113,24 @@ export const AdminSettings: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-navy-900 mb-1">Direct Phone</label>
+              <label className="block text-xs font-semibold text-navy-900 mb-1">Direct Mobile Phone</label>
               <input
                 type="text"
                 name="phone"
                 value={settings.phone}
                 onChange={handleInputChange}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 text-xs text-navy-900 bg-cream-50/40 font-mono"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-navy-900 mb-1">Office Landline Number</label>
+              <input
+                type="text"
+                name="landline"
+                value={settings.landline || ''}
+                onChange={handleInputChange}
+                placeholder="04288 234112"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 text-xs text-navy-900 bg-cream-50/40 font-mono"
               />
             </div>

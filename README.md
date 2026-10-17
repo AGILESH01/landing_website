@@ -16,8 +16,9 @@ A production-grade, full-stack website and digital textile showroom built for **
 | **Industry** | Woven-fabric manufacturing and processing |
 | **Experience** | More than 25 years |
 | **Stated Production Capacity** | 10 Lakh metres per month (1,000,000 metres/month) |
-| **Direct Phone** | `+91 9842406591` |
-| **WhatsApp Business** | `+91 9842406591` |
+| **Direct Mobile Phone** | `+91 9842212112` |
+| **Office Landline** | `04288 234112` |
+| **WhatsApp Business** | `+91 9842212112` |
 | **Official Email** | `karthikeyantextiles18@gmail.com` |
 | **Business Hours** | Monday – Saturday, 9:00 AM – 8:00 PM IST (Sunday Closed) |
 | **Target Clients** | Garment manufacturers, textile traders, clothing brands, export houses, retail stores |

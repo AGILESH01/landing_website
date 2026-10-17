@@ -188,10 +188,10 @@ export const quotationService = {
 
   /**
    * Generates compliant WhatsApp click-to-chat URL with pre-filled message
-   * International phone format: 919842406591
+   * International phone format: 919842212112
    */
   generateWhatsAppUrl(quotation: Partial<QuotationFormData & { reference_number?: string }>): string {
-    const phone = '919842406591'; // +91 9842406591 without plus or spaces
+    const phone = '919842212112'; // +91 9842212112 without plus or spaces
     
     let text = `Hello Karthikeyan Textiles,\n\nI would like to inquire about fabric manufacturing.\n`;
     if (quotation.reference_number) {

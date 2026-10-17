@@ -20,7 +20,7 @@ export const ContactPage: React.FC = () => {
 
         {/* Contact Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {/* Card 1: Phone */}
+          {/* Card 1: Phone & Landline */}
           <div className="bg-white rounded-2xl p-6 border border-cream-300 shadow-sm flex flex-col justify-between hover:shadow-fabric-card transition-all">
             <div>
               <div className="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center mb-4">
@@ -32,12 +32,26 @@ export const ContactPage: React.FC = () => {
               <p className="text-xs text-slate-500 mb-3">
                 Call our production and sales desk.
               </p>
-              <a
-                href="tel:+919842406591"
-                className="text-sm font-semibold text-navy-900 hover:text-gold-600 block transition-colors"
-              >
-                +91 9842406591
-              </a>
+              <div className="space-y-1.5">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Mobile Phone:</span>
+                  <a
+                    href="tel:+919842212112"
+                    className="text-sm font-semibold text-navy-900 hover:text-gold-600 block transition-colors"
+                  >
+                    +91 9842212112
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Office Landline:</span>
+                  <a
+                    href="tel:04288234112"
+                    className="text-sm font-semibold text-navy-900 hover:text-gold-600 block transition-colors font-mono"
+                  >
+                    04288 234112
+                  </a>
+                </div>
+              </div>
             </div>
             <div className="mt-4 pt-3 border-t border-cream-200 text-[11px] text-slate-400">
               Mon – Sat: 9:00 AM – 8:00 PM IST
@@ -57,12 +71,12 @@ export const ContactPage: React.FC = () => {
                 Instant quotes & swatch discussions.
               </p>
               <a
-                href="https://wa.me/919842406591"
+                href="https://wa.me/919842212112"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-emerald-700 hover:text-emerald-800 block transition-colors"
               >
-                +91 9842406591
+                +91 9842212112
               </a>
             </div>
             <div className="mt-4 pt-3 border-t border-cream-200 text-[11px] text-emerald-600 font-medium">

@@ -112,19 +112,25 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
-                <a href="tel:+919842406591" className="hover:text-gold-300 transition-colors">
-                  +91 9842406591
+                <a href="tel:+919842212112" className="hover:text-gold-300 transition-colors">
+                  +91 9842212112 (Mobile)
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
+                <a href="tel:04288234112" className="hover:text-gold-300 transition-colors font-mono">
+                  04288 234112 (Landline)
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <a
-                  href="https://wa.me/919842406591"
+                  href="https://wa.me/919842212112"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-300 transition-colors"
                 >
-                  +91 9842406591 (WhatsApp)
+                  +91 9842212112 (WhatsApp)
                 </a>
               </li>
               <li className="flex items-center gap-2.5">

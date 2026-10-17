@@ -101,24 +101,31 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Secondary Instant Contact Links */}
-              <div className="pt-2 flex items-center gap-4 text-xs text-cream-300/80">
+              <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-cream-300/80">
                 <span>Direct Contact:</span>
                 <a
-                  href="https://wa.me/919842406591"
+                  href="https://wa.me/919842212112"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-medium"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
-                  <span>WhatsApp Chat</span>
+                  <span>WhatsApp</span>
                 </a>
                 <span className="text-cream-400/40">•</span>
                 <a
-                  href="tel:+919842406591"
+                  href="tel:+919842212112"
                   className="inline-flex items-center gap-1.5 hover:text-white"
                 >
                   <Phone className="w-3.5 h-3.5 text-gold-400" />
-                  <span>+91 9842406591</span>
+                  <span>+91 9842212112</span>
+                </a>
+                <span className="text-cream-400/40">•</span>
+                <a
+                  href="tel:04288234112"
+                  className="inline-flex items-center gap-1.5 hover:text-white font-mono text-[11px]"
+                >
+                  <span>04288 234112</span>
                 </a>
               </div>
             </div>
@@ -227,7 +234,7 @@ export const HomePage: React.FC = () => {
             </Link>
 
             <a
-              href="https://wa.me/919842406591"
+              href="https://wa.me/919842212112"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold uppercase tracking-wider text-emerald-800 bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 transition-colors"

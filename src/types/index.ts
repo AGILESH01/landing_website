@@ -150,6 +150,7 @@ export interface AdminUser {
 export interface OperationalSettings {
   company_name: string;
   phone: string;
+  landline?: string;
   whatsapp: string;
   email: string;
   location: string;

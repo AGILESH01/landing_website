@@ -273,12 +273,18 @@ export const FabricDetailPage: React.FC = () => {
                 </a>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-                <span>Direct Inquiry Line:</span>
-                <a href="tel:+919842406591" className="font-semibold text-navy-900 hover:text-gold-600 inline-flex items-center gap-1">
-                  <Phone className="w-3 h-3 text-gold-500" />
-                  <span>+91 9842406591</span>
-                </a>
+              <div className="flex flex-wrap items-center justify-between text-[11px] text-slate-500 pt-1 gap-2">
+                <span>Direct Inquiries:</span>
+                <div className="flex items-center gap-3">
+                  <a href="tel:+919842212112" className="font-semibold text-navy-900 hover:text-gold-600 inline-flex items-center gap-1">
+                    <Phone className="w-3 h-3 text-gold-500" />
+                    <span>+91 9842212112</span>
+                  </a>
+                  <span>•</span>
+                  <a href="tel:04288234112" className="text-slate-600 hover:text-navy-900 font-mono">
+                    <span>04288 234112</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
