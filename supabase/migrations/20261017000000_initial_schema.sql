@@ -4,6 +4,7 @@
 -- Migration Version: 20261017000000_initial_schema.sql
 -- Database: PostgreSQL 15+ (Supabase)
 -- Reference: Section 8 & Section 9 of System Specification
+-- Note: Fully idempotent (can be re-run safely multiple times)
 
 -- Enable required extensions
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -21,18 +22,29 @@ CREATE TABLE IF NOT EXISTS public.profiles (
 
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
+-- Helper function to check if caller is an admin (avoids RLS recursion)
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public
+STABLE
+AS $$
+  SELECT EXISTS (
+    SELECT 1 FROM public.profiles
+    WHERE id = auth.uid() AND role = 'admin'
+  );
+$$;
+
 -- Profiles Policies
+DROP POLICY IF EXISTS "Admins can view and manage all profiles" ON public.profiles;
 CREATE POLICY "Admins can view and manage all profiles"
   ON public.profiles
   FOR ALL
   TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles
-      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
-    )
-  );
+  USING (public.is_admin());
 
+DROP POLICY IF EXISTS "Users can read own profile" ON public.profiles;
 CREATE POLICY "Users can read own profile"
   ON public.profiles
   FOR SELECT
@@ -55,24 +67,19 @@ CREATE TABLE IF NOT EXISTS public.fabric_categories (
 
 ALTER TABLE public.fabric_categories ENABLE ROW LEVEL SECURITY;
 
--- Public can view active categories
+DROP POLICY IF EXISTS "Public can view active fabric categories" ON public.fabric_categories;
 CREATE POLICY "Public can view active fabric categories"
   ON public.fabric_categories
   FOR SELECT
   TO anon, authenticated
   USING (is_active = true);
 
--- Admins can manage categories
+DROP POLICY IF EXISTS "Admins can manage fabric categories" ON public.fabric_categories;
 CREATE POLICY "Admins can manage fabric categories"
   ON public.fabric_categories
   FOR ALL
   TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles
-      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
-    )
-  );
+  USING (public.is_admin());
 
 -- ==============================================================================
 -- 3. FABRICS TABLE
@@ -118,24 +125,19 @@ CREATE TABLE IF NOT EXISTS public.fabrics (
 
 ALTER TABLE public.fabrics ENABLE ROW LEVEL SECURITY;
 
--- Public can only view published fabrics
+DROP POLICY IF EXISTS "Public can view published fabrics" ON public.fabrics;
 CREATE POLICY "Public can view published fabrics"
   ON public.fabrics
   FOR SELECT
   TO anon, authenticated
   USING (published = true);
 
--- Admins can view and manage all fabrics (published and drafts)
+DROP POLICY IF EXISTS "Admins can manage all fabrics" ON public.fabrics;
 CREATE POLICY "Admins can manage all fabrics"
   ON public.fabrics
   FOR ALL
   TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles
-      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
-    )
-  );
+  USING (public.is_admin());
 
 -- Indexes for performance
 CREATE INDEX IF NOT EXISTS idx_fabrics_slug ON public.fabrics(slug);
@@ -157,6 +159,7 @@ CREATE TABLE IF NOT EXISTS public.fabric_images (
 
 ALTER TABLE public.fabric_images ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Public can view images of published fabrics" ON public.fabric_images;
 CREATE POLICY "Public can view images of published fabrics"
   ON public.fabric_images
   FOR SELECT
@@ -168,16 +171,12 @@ CREATE POLICY "Public can view images of published fabrics"
     )
   );
 
+DROP POLICY IF EXISTS "Admins can manage fabric images" ON public.fabric_images;
 CREATE POLICY "Admins can manage fabric images"
   ON public.fabric_images
   FOR ALL
   TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles
-      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
-    )
-  );
+  USING (public.is_admin());
 
 -- ==============================================================================
 -- 5. QUOTATIONS TABLE
@@ -219,8 +218,7 @@ CREATE TABLE IF NOT EXISTS public.quotations (
 
 ALTER TABLE public.quotations ENABLE ROW LEVEL SECURITY;
 
--- Quotation Access Control:
--- Public can ONLY insert quotation requests. Public CANNOT read any quotations.
+DROP POLICY IF EXISTS "Public can submit quotation requests" ON public.quotations;
 CREATE POLICY "Public can submit quotation requests"
   ON public.quotations
   FOR INSERT
@@ -236,17 +234,12 @@ CREATE POLICY "Public can submit quotation requests"
     internal_notes IS NULL
   );
 
--- Admins can view and manage all quotations
+DROP POLICY IF EXISTS "Admins can manage quotations" ON public.quotations;
 CREATE POLICY "Admins can manage quotations"
   ON public.quotations
   FOR ALL
   TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles
-      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
-    )
-  );
+  USING (public.is_admin());
 
 CREATE INDEX IF NOT EXISTS idx_quotations_ref ON public.quotations(reference_number);
 CREATE INDEX IF NOT EXISTS idx_quotations_status ON public.quotations(status);
@@ -267,25 +260,30 @@ CREATE TABLE IF NOT EXISTS public.quotation_attachments (
 
 ALTER TABLE public.quotation_attachments ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Public can insert attachments for new quotation" ON public.quotation_attachments;
 CREATE POLICY "Public can insert attachments for new quotation"
   ON public.quotation_attachments
   FOR INSERT
   TO anon, authenticated
   WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Admins can view and manage attachments" ON public.quotation_attachments;
 CREATE POLICY "Admins can view and manage attachments"
   ON public.quotation_attachments
   FOR ALL
   TO authenticated
-  USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles
-      WHERE profiles.id = auth.uid() AND profiles.role = 'admin'
-    )
-  );
+  USING (public.is_admin());
 
 -- ==============================================================================
--- 7. STORAGE BUCKETS SETUP (Run via Supabase Storage interface or CLI)
+-- 7. SEED INITIAL VERIFIED FABRIC CATEGORIES
 -- ==============================================================================
--- INSERT INTO storage.buckets (id, name, public) VALUES ('fabric-images', 'fabric-images', true) ON CONFLICT DO NOTHING;
--- INSERT INTO storage.buckets (id, name, public) VALUES ('quotation-attachments', 'quotation-attachments', false) ON CONFLICT DO NOTHING;
+INSERT INTO public.fabric_categories (id, name, slug, description, sort_order, is_active)
+VALUES
+  ('cat-cotton', 'Pure Cotton', 'pure-cotton', '100% natural cotton woven fabrics for shirts, trousers, and premium apparel.', 1, true),
+  ('cat-blends', 'Cotton-Poly Blends', 'cotton-poly-blends', 'Engineered poly-cotton blends combining breathability, durability, and wrinkle resistance.', 2, true),
+  ('cat-poplin', 'Poplin', 'poplin', 'Smooth, fine plain-weave poplins ideal for formal shirting and uniforms.', 3, true),
+  ('cat-twill', 'Twill', 'twill', 'Distinctive diagonal ribbed weave suitable for heavy-duty workwear, pants, and jackets.', 4, true),
+  ('cat-checks', 'Checks & Stripes', 'checks-stripes', 'Yarn-dyed geometric weaves, gingham, madras, and structured stripes.', 5, true),
+  ('cat-yarndyed', 'Yarn-Dyed', 'yarn-dyed', 'Deep, rich colours woven directly from dyed yarns with exceptional colourfastness.', 6, true),
+  ('cat-speciality', 'Speciality Wovens', 'speciality-wovens', 'Custom weave structures, dobbies, and high-density industrial fabrics.', 7, true)
+ON CONFLICT (slug) DO NOTHING;
