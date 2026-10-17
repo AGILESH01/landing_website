@@ -2,10 +2,11 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Fabric, Quotation, OperationalSettings } from '../types';
 import { VERIFIED_CATEGORIES, INITIAL_FABRICS } from '../data/seedData';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://alxatoutpzhlcvteebzv.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFseGF0b3V0cHpobGN2dGVlYnp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIyNDQzMTcsImV4cCI6MjEwNzgyMDMxN30.UJoNlOk8w6k4czNlpMQwBsCVXdzxvIylINz6RJCB1Xk';
 
 export const isSupabaseConfigured = Boolean(
+  import.meta.env.MODE !== 'test' &&
   supabaseUrl &&
   supabaseAnonKey &&
   supabaseUrl !== 'https://your-project-id.supabase.co' &&
