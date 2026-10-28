@@ -16,7 +16,7 @@ export const ManufacturingPage: React.FC = () => {
             Manufacturing & Processing Capabilities
           </h1>
           <p className="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed">
-            With over 25 years of established presence in the Pallipalayam textile corridor, Karthikeyan Textiles manages end-to-end woven fabric manufacturing and processing programs with a stated capacity of 10 Lakh metres per month.
+            With over 25 years of established presence in the Pallipalayam textile corridor, Karthikeyan Textiles manages end-to-end woven fabric manufacturing and processing programs with a stated capacity of 2 Lakh metres per month.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export const ManufacturingPage: React.FC = () => {
               Verified Production Metric
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-              10 Lakh Metres Monthly Stated Capacity
+              2 Lakh Metres Monthly Stated Capacity
             </h2>
             <p className="text-xs sm:text-sm text-cream-300/80 max-w-xl leading-relaxed">
               Coordinated through dedicated production lines in Pallipalayam, Erode, facilitating continuous deliveries for domestic garment manufacturers, export houses, and wholesalers.

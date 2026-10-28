@@ -210,7 +210,7 @@ export const adminService = {
       email: 'karthikeyantextiles18@gmail.com',
       location: 'Pallipalayam, Erode, Tamil Nadu, India',
       business_hours: 'Monday–Saturday, 9:00 AM–8:00 PM IST',
-      stated_capacity: '10 Lakh Metres per Month',
+      stated_capacity: '2 Lakh Metres per Month',
       experience_years: '25+ Years',
       tagline: 'Quality Woven. Global Reach.',
       supporting_statement: 'Your Fabric Requirements. Our Manufacturing Expertise. Quality You Expect, Prices You’ll Appreciate.',

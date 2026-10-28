@@ -66,7 +66,7 @@ export const ManufacturingSection: React.FC = () => {
             Operational Note:
           </span>
           <p className="leading-relaxed">
-            Karthikeyan Textiles manages complete weaving and processing coordination through established manufacturing channels in the Erode textile corridor. Stated production capacity is 10 Lakh metres per month.
+            Karthikeyan Textiles manages complete weaving and processing coordination through established manufacturing channels in the Erode textile corridor. Stated production capacity is 2 Lakh metres per month.
           </p>
         </div>
       </div>

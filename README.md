@@ -3,7 +3,7 @@
 > **"Quality Woven. Global Reach."**  
 > *"Your Fabric Requirements. Our Manufacturing Expertise. Quality You Expect, Prices You’ll Appreciate."*
 
-A production-grade, full-stack website and digital textile showroom built for **Karthikeyan Textiles**, a woven-fabric manufacturing and processing specialist based in **Pallipalayam, Erode, Tamil Nadu, India**, with over 25 years of industry experience and a stated monthly production capacity of **10 Lakh metres (1,000,000 metres)**.
+A production-grade, full-stack website and digital textile showroom built for **Karthikeyan Textiles**, a woven-fabric manufacturing and processing specialist based in **Pallipalayam, Erode, Tamil Nadu, India**, with over 25 years of industry experience and a stated monthly production capacity of **2 Lakh metres (2,00,000 metres)**.
 
 ---
 
@@ -15,7 +15,7 @@ A production-grade, full-stack website and digital textile showroom built for **
 | **Location** | Pallipalayam, Erode, Tamil Nadu, India |
 | **Industry** | Woven-fabric manufacturing and processing |
 | **Experience** | More than 25 years |
-| **Stated Production Capacity** | 10 Lakh metres per month (1,000,000 metres/month) |
+| **Stated Production Capacity** | 2 Lakh metres per month (2,00,000 metres/month) |
 | **Direct Mobile Phone** | `+91 9842212112` |
 | **Office Landline** | `04288 234112` |
 | **WhatsApp Business** | `+91 9842212112` |
@@ -59,7 +59,7 @@ appa_final/
 │   │   │   ├── Header.tsx              # Responsive top bar, quick contact, nav
 │   │   │   └── Footer.tsx              # Rich footer, verified contact, transparency note
 │   │   └── home/
-│   │       ├── CapacityCallout.tsx     # 10 Lakh Metres/Month capacity spotlight
+│   │       ├── CapacityCallout.tsx     # 2 Lakh Metres/Month capacity spotlight
 │   │       ├── ManufacturingSection.tsx # 9 confirmed processing stages
 │   │       ├── QualityAssuranceSection.tsx # 8 confirmed quality checkpoints
 │   │       └── YarnToFabricSection.tsx # Scroll-driven yarn-to-cloth storytelling
@@ -217,4 +217,4 @@ To deliver instant email notifications to `karthikeyantextiles18@gmail.com` when
 - **Certifications**: Karthikeyan Textiles currently holds no formal third-party certifications or lab accreditations. No certification badges are displayed.
 - **Production Equipment**: Machinery brands, loom models, and factory counts remain uninvented in adherence to strict verification guidelines.
 - **Pantone References**: The company references a physical Pantone colour reference book. Provisional digital colours are documented in `src/tokens/colors.ts` with `pantoneReference: null` until physical swatch selection is approved.
-- **Stated Capacity**: 10 Lakh metres per month (1,000,000 metres/month) coordinated across the Pallipalayam/Erode weaving and processing belt.
+- **Stated Capacity**: 2 Lakh metres per month (2,00,000 metres/month) coordinated across the Pallipalayam/Erode weaving and processing belt.

@@ -70,7 +70,7 @@ export const HomePage: React.FC = () => {
                     Stated Production Capacity
                   </span>
                   <span className="text-xl sm:text-2xl font-serif font-bold text-white">
-                    10 Lakh Metres per Month
+                    2 Lakh Metres per Month
                   </span>
                   <span className="text-[11px] text-cream-300/70 block mt-0.5">
                     Coordinated manufacturing & processing in Erode hub

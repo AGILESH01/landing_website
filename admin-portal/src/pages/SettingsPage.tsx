@@ -77,7 +77,7 @@ export const SettingsPage: React.FC = () => {
         {/* Business Notice */}
         <div className="p-4 rounded-2xl bg-navy-950/40 border border-white/5 text-[11px] text-slate-400 space-y-1 leading-relaxed">
           <span className="font-semibold text-slate-300 block">System Compliance Note:</span>
-          Per operational rules, the production capacity is strictly fixed to 10 Lakh metres/month without unverified machine claims or unsupported certification badges.
+          Per operational rules, the production capacity is strictly fixed to 2 Lakh metres/month without unverified machine claims or unsupported certification badges.
         </div>
       </div>
     </div>

@@ -117,7 +117,7 @@ serve(async (req) => {
         </div>
 
         <div style="background: #EFECE4; padding: 14px; text-align: center; font-size: 11px; color: #718096;">
-          Karthikeyan Textiles • Pallipalayam, Erode, Tamil Nadu, India • Capacity: 10 Lakh Metres/Month
+          Karthikeyan Textiles • Pallipalayam, Erode, Tamil Nadu, India • Capacity: 2 Lakh Metres/Month
         </div>
       </div>
     `;

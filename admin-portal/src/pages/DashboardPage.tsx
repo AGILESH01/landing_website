@@ -122,7 +122,7 @@ export const DashboardPage: React.FC = () => {
             <TrendingUp className="w-4 h-4 text-gold-400" />
           </div>
           <div className="text-2xl font-serif font-bold text-gold-300">
-            10 Lakh Metres
+            2 Lakh Metres
           </div>
           <p className="text-[11px] text-slate-400 mt-1.5">
             <span>Stated monthly capacity</span>

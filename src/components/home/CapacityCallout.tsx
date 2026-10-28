@@ -11,7 +11,7 @@ export const CapacityCallout: React.FC = () => {
     },
     {
       icon: Factory,
-      title: '10 Lakh Metres / Month',
+      title: '2 Lakh Metres / Month',
       desc: 'Stated manufacturing and processing capacity to coordinate volume garment orders and consistent repeat lots.',
     },
     {
@@ -43,13 +43,13 @@ export const CapacityCallout: React.FC = () => {
 
               <div className="space-y-1">
                 <span className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight block">
-                  10 Lakh
+                  2 Lakh
                 </span>
                 <span className="text-xl sm:text-2xl font-serif text-gold-400 block font-medium">
                   Metres per Month
                 </span>
                 <p className="text-xs text-cream-300/70 pt-2 font-mono">
-                  (1,000,000 metres monthly stated capacity)
+                  (2,00,000 metres monthly stated capacity)
                 </p>
               </div>
 

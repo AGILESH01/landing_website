@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col space-y-4">
             <Logo variant="light" size="md" showTagline={true} />
             <p className="text-xs text-cream-300/80 leading-relaxed mt-2">
-              Karthikeyan Textiles brings over 25 years of woven-fabric manufacturing and processing expertise to Indian and international B2B buyers. Stated production capacity of 10 Lakh metres per month.
+              Karthikeyan Textiles brings over 25 years of woven-fabric manufacturing and processing expertise to Indian and international B2B buyers. Stated production capacity of 2 Lakh metres per month.
             </p>
             <div className="pt-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[11px] font-medium bg-navy-900 border border-gold-500/30 text-gold-300">
